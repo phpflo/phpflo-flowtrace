@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "68f7db73bf90003f2468aa93515d5949",
-    "content-hash": "c16ac4ae171644153cd8f6f08c4a6fd9",
+    "hash": "9c49946fba340d33f61ca370e7a6a2ed",
+    "content-hash": "cdf561682e1369b664d4243a584aeee9",
     "packages": [],
     "packages-dev": [
         {
@@ -61,6 +61,52 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "evenement/evenement",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/igorw/evenement.git",
+                "reference": "f6e843799fd4f4184d54d8fc7b5b3551c9fa803e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/igorw/evenement/zipball/f6e843799fd4f4184d54d8fc7b5b3551c9fa803e",
+                "reference": "f6e843799fd4f4184d54d8fc7b5b3551c9fa803e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Evenement": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch",
+                    "homepage": "http://wiedler.ch/igor/"
+                }
+            ],
+            "description": "Événement is a very simple event dispatching library for PHP",
+            "keywords": [
+                "event-dispatcher",
+                "event-emitter"
+            ],
+            "time": "2012-11-02 14:49:47"
         },
         {
             "name": "mikey179/vfsStream",
@@ -253,6 +299,152 @@
                 }
             ],
             "time": "2016-06-10 07:14:17"
+        },
+        {
+            "name": "phpflo/phpflo",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bergie/phpflo.git",
+                "reference": "000e544be8224d06660c87e7e8cead54b1e9529c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bergie/phpflo/zipball/000e544be8224d06660c87e7e8cead54b1e9529c",
+                "reference": "000e544be8224d06660c87e7e8cead54b1e9529c",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "~2.0",
+                "php": ">=5.4.0",
+                "phpflo/phpflo-core": "^1.0",
+                "phpflo/phpflo-fbp": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "<5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henri Bergius",
+                    "email": "henri.bergius@iki.fi",
+                    "homepage": "http://bergie.iki.fi/"
+                }
+            ],
+            "description": "Flow-based programming for PHP",
+            "homepage": "https://github.com/bergie/phpflo",
+            "keywords": [
+                "fbp",
+                "flow"
+            ],
+            "time": "2016-10-30 22:09:47"
+        },
+        {
+            "name": "phpflo/phpflo-core",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpflo/phpflo-core.git",
+                "reference": "99d39e9616cffa238237aa7d239111136fde13a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpflo/phpflo-core/zipball/99d39e9616cffa238237aa7d239111136fde13a9",
+                "reference": "99d39e9616cffa238237aa7d239111136fde13a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "<5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henri Bergius",
+                    "email": "henri.bergius@iki.fi",
+                    "homepage": "http://bergie.iki.fi/"
+                },
+                {
+                    "name": "Marc Aschmann",
+                    "email": "maschmann@gmail.com"
+                }
+            ],
+            "description": "Collection of base components for usage with phpflo",
+            "keywords": [
+                "fbp",
+                "flow"
+            ],
+            "time": "2016-09-18 20:29:50"
+        },
+        {
+            "name": "phpflo/phpflo-fbp",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpflo/phpflo-fbp.git",
+                "reference": "e5dcaaa0979de3d42f777cd79fe475932c2cdbc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpflo/phpflo-fbp/zipball/e5dcaaa0979de3d42f777cd79fe475932c2cdbc3",
+                "reference": "e5dcaaa0979de3d42f777cd79fe475932c2cdbc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/yaml": ">=2.7 <=4.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "<5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henri Bergius",
+                    "email": "henri.bergius@iki.fi",
+                    "homepage": "http://bergie.iki.fi/"
+                },
+                {
+                    "name": "Marc Aschmann",
+                    "email": "maschmann@gmail.com"
+                }
+            ],
+            "description": "fbp implementation for php",
+            "keywords": [
+                "fbp",
+                "flow"
+            ],
+            "time": "2016-11-12 17:50:52"
         },
         {
             "name": "phpspec/prophecy",

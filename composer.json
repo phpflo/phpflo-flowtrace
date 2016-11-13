@@ -15,7 +15,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "<5.0",
-    "mikey179/vfsStream": "^1.6"
+    "mikey179/vfsStream": "^1.6",
+    "phpflo/phpflo": "^1.0"
   },
   "config": {
     "bin-dir": "bin"
