@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c49946fba340d33f61ca370e7a6a2ed",
-    "content-hash": "cdf561682e1369b664d4243a584aeee9",
+    "hash": "682d4264f39a2c1d674647306fc96af3",
+    "content-hash": "b7059c7e35b608016c1814b77baa357f",
     "packages": [],
     "packages-dev": [
         {
@@ -302,16 +302,16 @@
         },
         {
             "name": "phpflo/phpflo",
-            "version": "1.0.0",
+            "version": "dev-feature/asm-traceable-network",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bergie/phpflo.git",
-                "reference": "000e544be8224d06660c87e7e8cead54b1e9529c"
+                "url": "https://github.com/maschmann/phpflo.git",
+                "reference": "340d5687d950fcf2b4d9d75e7aa82ceb1701cf3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bergie/phpflo/zipball/000e544be8224d06660c87e7e8cead54b1e9529c",
-                "reference": "000e544be8224d06660c87e7e8cead54b1e9529c",
+                "url": "https://api.github.com/repos/maschmann/phpflo/zipball/340d5687d950fcf2b4d9d75e7aa82ceb1701cf3e",
+                "reference": "340d5687d950fcf2b4d9d75e7aa82ceb1701cf3e",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,11 @@
                     "": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -346,7 +350,10 @@
                 "fbp",
                 "flow"
             ],
-            "time": "2016-10-30 22:09:47"
+            "support": {
+                "source": "https://github.com/maschmann/phpflo/tree/feature/asm-traceable-network"
+            },
+            "time": "2016-11-13 21:01:51"
         },
         {
             "name": "phpflo/phpflo-core",
@@ -753,16 +760,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.27",
+            "version": "4.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c062dddcb68e44b563f66ee319ddae2b5a322a90"
+                "reference": "558a3a0d28b4cb7e4a593a4fbd2220e787076225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c062dddcb68e44b563f66ee319ddae2b5a322a90",
-                "reference": "c062dddcb68e44b563f66ee319ddae2b5a322a90",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/558a3a0d28b4cb7e4a593a4fbd2220e787076225",
+                "reference": "558a3a0d28b4cb7e4a593a4fbd2220e787076225",
                 "shasum": ""
             },
             "require": {
@@ -821,7 +828,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-07-21 06:48:14"
+            "time": "2016-11-14 06:25:28"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1165,16 +1172,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "913401df809e99e4f47b27cdd781f4a258d58791"
+                "reference": "79860854756415e1cec8d186c9cf261cafd87dfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/913401df809e99e4f47b27cdd781f4a258d58791",
-                "reference": "913401df809e99e4f47b27cdd781f4a258d58791",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/79860854756415e1cec8d186c9cf261cafd87dfc",
+                "reference": "79860854756415e1cec8d186c9cf261cafd87dfc",
                 "shasum": ""
             },
             "require": {
@@ -1214,7 +1221,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2015-11-11 19:50:13"
+            "time": "2016-11-14 15:54:23"
         },
         {
             "name": "sebastian/version",
@@ -1353,7 +1360,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpflo/phpflo": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -19,16 +19,17 @@ class TraceableNetworkTest extends \PHPUnit_Framework_TestCase
 
     public function testInstance()
     {
-        $this->markTestSkipped('Needs change in phpflo');
-        /*$traceableNetwork = new TraceableNetwork(
+        //$this->markTestSkipped('Needs change in phpflo');
+        $traceableNetwork = new TraceableNetwork(
             $this->stub('PhpFlo\Common\NetworkInterface')
-        );*/
+        );
+        $this->assertInstanceOf('PhpFlo\Common\NetworkInterface', $traceableNetwork->getNetwork());
     }
 
     public function testInterface()
     {
-        $this->markTestSkipped('Needs change in phpflo');
-        /*$traceableNetwork = new TraceableNetwork(
+        //$this->markTestSkipped('Needs change in phpflo');
+        $traceableNetwork = new TraceableNetwork(
             $this->stub(
                 'PhpFlo\Common\NetworkInterface',
                 [
@@ -37,10 +38,9 @@ class TraceableNetworkTest extends \PHPUnit_Framework_TestCase
             )
         );
 
-        $this->assertInstanceOf('PhpFlo\Common\NetworkInterface', $traceableNetwork->getNetwork());
         $this->assertInstanceOf('PhpFlo\Graph', $traceableNetwork->getGraph());
         $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->shutdown());
         $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->addInitial([], 'node', 'port'));
-        */
+
     }
 }
