@@ -45,17 +45,20 @@ class TraceableNetwork extends AbstractNetworkAdapter implements NetworkAdapteri
      */
     private function trace()
     {
-        /*
-if src.process
-    return "#{src.process} #{src.port.toUpperCase()} -> #{tgt.port.toUpperCase()} #{tgt.node}"
-  else
-    return "-> #{tgt.port.toUpperCase()} #{tgt.node}"
-         */
-
         $trace = function ($data, $socket) {
-            serialize($data);
+            if (!is_string($data)) {
+                $data = serialize($data);
+            }
 
-            $this->logger->debug();
+            $to = $socket->to();
+            $message = "-> {$to['port']} {$to['process']}";
+
+            $from = $socket->from();
+            if (isset($from['process'])) {
+                $message = "{$from['process']} {$from['port']} " . $message;
+            }
+
+            $this->logger->debug($message);
         };
 
         return $trace->bindTo($this);
