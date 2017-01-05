@@ -29,6 +29,9 @@ class SimpleFile extends AbstractLogger implements LoggerInterface
      */
     private $logFile;
 
+    /**
+     * @var array
+     */
     private $levels;
 
     /**
@@ -73,7 +76,7 @@ class SimpleFile extends AbstractLogger implements LoggerInterface
     }
 
     /**
-     * Prepare loglevels for logfile
+     * Prepare log levels for logfile
      *
      * @param string $level
      */

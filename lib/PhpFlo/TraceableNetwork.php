@@ -64,11 +64,12 @@ class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecora
     /**
      * Wrap the creation of the callback
      *
+     * @param string $type
      * @return \Closure
      */
     private function trace($type)
     {
-        $trace = function () use ($type) {
+        $trace = function() use ($type) {
             switch ($type) {
                 case TraceableNetwork::TYPE_DATA:
                     $this->traceData(func_get_args(), $type);
@@ -95,13 +96,12 @@ class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecora
         if (!is_string($data)) {
             $data = serialize($data);
         }
-
-        $to      = $socket->to();
-        $message = "-> {$to['port']} {$to['process']['id']} ";
+        $to = $socket->to();
+        $message = "-> {$to['port']} {$to['process']['id']}";
 
         $from = $socket->from();
         if (isset($from['process'])) {
-            $message = "{$from['process']['id']} {$from['port']} {$message}";
+            $message = " {$from['process']['id']} {$from['port']} {$message}";
         }
 
         $this->logger->info("{$message} {$this->actions[$type]} {$data}");
@@ -114,13 +114,12 @@ class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecora
     private function traceAction(array $args, $type)
     {
         $socket = $args[0];
-
-        $to      = $socket->to();
-        $message = "-> {$to['port']} {$to['process']['id']} ";
+        $to = $socket->to();
+        $message = "-> {$to['port']} {$to['process']['id']}";
 
         $from = $socket->from();
         if (isset($from['process'])) {
-            $message = "{$from['process']['id']} {$from['port']} {$message}";
+            $message = " {$from['process']['id']} {$from['port']} {$message}";
         }
 
         $this->logger->debug("{$message} {$this->actions[$type]}");
