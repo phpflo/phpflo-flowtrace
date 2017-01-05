@@ -34,7 +34,7 @@ EOF;
         vfsStream::setup('home');
         $file = vfsStream::url('home/test.log');
 
-        $logger = new SimpleFile($file);
+        $logger = new SimpleFile($file, 'debug');
         $logger->debug('first_line');
         $logger->alert('second_line');
         $logger->critical('third_line');
@@ -53,7 +53,7 @@ EOF;
     public function testDefaultFile()
     {
         $dir = vfsStream::setup('home');
-        $logger = new SimpleFile($dir->url());
+        $logger = new SimpleFile($dir->url(), 'debug');
         $logger->log(LogLevel::DEBUG, 'last_line');
         $this->assertTrue($dir->hasChild('home' . DIRECTORY_SEPARATOR .  'flow.log'));
     }
