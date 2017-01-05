@@ -34,15 +34,16 @@ class SimpleFile extends AbstractLogger implements LoggerInterface
     public function __construct($logFile)
     {
         $log = pathinfo($logFile);
-
-        if (isset($log['dirname']) && !is_dir($log['dirname'])) {
+        // check if $logFile is a dir because of possible stream url
+        $isLogdir = is_dir($logFile);
+        if (!$isLogdir && (isset($log['dirname']) && !is_dir($log['dirname']))) {
             throw new \InvalidArgumentException(
                 "Directory does not exist: {$log['dirname']}"
             );
         }
 
-        if (!isset($log['filename'])) {
-            $log['filename'] = self::DEFAULT_FILENAME;
+        if ($isLogdir || !isset($log['filename'])) {
+            $logFile = $logFile . DIRECTORY_SEPARATOR . self::DEFAULT_FILENAME;
         }
         $this->logFile = $logFile;
     }

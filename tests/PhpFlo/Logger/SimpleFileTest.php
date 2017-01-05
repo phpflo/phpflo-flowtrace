@@ -46,5 +46,23 @@ EOF;
         $logger->log(LogLevel::DEBUG, 'last_line');
 
         $this->assertEquals($expected, file_get_contents($file));
+
+        $logger = null;
+    }
+
+    public function testDefaultFile()
+    {
+        $dir = vfsStream::setup('home');
+        $logger = new SimpleFile($dir->url());
+        $logger->log(LogLevel::DEBUG, 'last_line');
+        $this->assertTrue($dir->hasChild('home' . DIRECTORY_SEPARATOR .  'flow.log'));
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNoDirFound()
+    {
+        $logger = new SimpleFile('i_do_not_exist/because/i_am_not_here');
     }
 }
