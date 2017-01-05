@@ -11,12 +11,12 @@
 namespace PhpFlo\Common;
 
 /**
- * Class AbstractNetworkAdapter
+ * Class AbstractNetworkDecorator
  *
  * @package PhpFlo\Common
  * @author Marc Aschmann <maschmann@gmail.com>
  */
-abstract class AbstractNetworkAdapter implements NetworkInterface
+abstract class AbstractNetworkDecorator implements NetworkInterface
 {
     /**
      * @var NetworkInterface

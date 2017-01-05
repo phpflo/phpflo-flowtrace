@@ -10,14 +10,9 @@
 
 namespace PhpFlo;
 
-use PhpFlo\Common\AbstractNetworkAdapter;
-use PhpFlo\Common\HookableNetworkInterface;
-use PhpFlo\Common\Network;
-use PhpFlo\Common\NetworkAdapterinterface;
+use PhpFlo\Common\AbstractNetworkDecorator;
+use PhpFlo\Common\NetworkDecoratorInterface;
 use PhpFlo\Common\NetworkInterface;
-use PhpFlo\Exception\FlowException;
-use PhpFlo\Exception\InvalidDefinitionException;
-use PhpFlo\Exception\InvalidTypeException;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -26,7 +21,7 @@ use Psr\Log\LoggerInterface;
  * @package PhpFlo
  * @author Marc Aschmann <maschmann@gmail.com>
  */
-class TraceableNetwork extends AbstractNetworkAdapter implements NetworkAdapterinterface
+class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecoratorInterface
 {
     const TYPE_DATA = 'data';
     const TYPE_CONNECT = 'connect';

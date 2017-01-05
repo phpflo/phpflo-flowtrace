@@ -11,12 +11,12 @@
 namespace PhpFlo\Common;
 
 /**
- * Interface NetworkAdapterinterface
+ * Interface NetworkDecoratorInterface
  *
  * @package PhpFlo\Common
  * @author Marc Aschmann <maschmann@gmail.com>
  */
-interface NetworkAdapterinterface
+interface NetworkDecoratorInterface
 {
     /**
      * @return NetworkInterfaces

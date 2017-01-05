@@ -59,16 +59,16 @@ class TraceableNetworkTest extends \PHPUnit_Framework_TestCase
 
         // network interface
         $this->assertInstanceOf('PhpFlo\Graph', $traceableNetwork->getGraph(), 'getGraph failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->shutdown(), 'shutdown failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->hook('data', 'test', function() {return true;}), 'hook failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->shutdown(), 'shutdown failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->hook('data', 'test', function() {return true;}), 'hook failed');
         $this->assertTrue(is_array($traceableNetwork->hooks()), 'hooks failed');
         $this->assertInstanceOf('\Dateinterval', $traceableNetwork->uptime(), 'uptime failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->addNode([]), 'addNode failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->removeNode([]), 'removeNode failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->addNode([]), 'addNode failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->removeNode([]), 'removeNode failed');
         $this->assertTrue(is_array($traceableNetwork->getNode('id')), 'getNode failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->addEdge([]), 'addEdge failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->removeEdge([]), 'removeEdge failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->boot($this->stub('PhpFlo\Graph')), 'boot failed');
-        $this->assertInstanceOf('PhpFlo\Common\NetworkAdapterInterface', $traceableNetwork->run([], 'node', 'port'), 'run failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->addEdge([]), 'addEdge failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->removeEdge([]), 'removeEdge failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->boot($this->stub('PhpFlo\Graph')), 'boot failed');
+        $this->assertInstanceOf('PhpFlo\Common\NetworkDecoratorInterface', $traceableNetwork->run([], 'node', 'port'), 'run failed');
     }
 }
