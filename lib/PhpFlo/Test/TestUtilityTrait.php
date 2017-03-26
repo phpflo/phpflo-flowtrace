@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
+declare(strict_types=1);
 namespace PhpFlo\Test;
 
 /**
@@ -29,14 +29,28 @@ trait TestUtilityTrait
      *
      * @param string $class
      * @param array $methods
+     * @param string $className classname for mock object
+     * @param bool $forceMethods
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    public function stub($class, array $methods = [])
-    {
-        $stub = $this->getMockBuilder($class)
-            ->disableOriginalConstructor()
-            ->getMock();
+    protected function stub(
+        string $class,
+        array $methods = [],
+        string $className = '',
+        bool $forceMethods = false
+    ) : \PHPUnit_Framework_MockObject_MockObject {
+        $builder = $this->getMockBuilder($class)
+            ->disableOriginalConstructor();
 
+        if (!empty($methods) && $forceMethods) {
+            $builder->setMethods(array_keys($methods));
+        }
+
+        if ('' !== $className) {
+            $builder->setMockClassName($className);
+        }
+
+        $stub = $builder->getMock();
         foreach ($methods as $method => $value) {
             if (is_callable($value)) {
                 $stub->expects($this->any())->method($method)->willReturnCallback($value);

@@ -2,7 +2,7 @@
   "name": "phpflo/phpflo-flowtrace",
   "description": "Log phpflo network execution for debugging and analysis",
   "type": "library",
-  "keywords": ["fbp", "flow based programming", "log"],
+  "keywords": ["fbp", "flow based programming", "log", "php"],
   "license": "MIT",
   "authors": [
     {
@@ -11,13 +11,13 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0",
-    "psr/log": "^1.0",
-    "mikey179/vfsStream": "^1.6"
+    "php": ">=7.0.0",
+    "psr/log": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "<5.0",
-    "phpflo/phpflo": "dev-feature/asm-traceable-network"
+    "mikey179/vfsStream": "^1.6",
+    "phpflo/phpflo": "^2.0.0"
   },
   "config": {
     "bin-dir": "bin"
@@ -29,11 +29,5 @@
   },
   "autoload-dev": {
     "psr-4": { "Tests\\": "tests/" }
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/maschmann/phpflo"
-    }
-  ]
+  }
 }

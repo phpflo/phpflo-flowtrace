@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare(strict_types=1);
 namespace PhpFlo\Logger;
 
 use Psr\Log\AbstractLogger;
@@ -37,7 +38,7 @@ class SimpleFile extends AbstractLogger implements LoggerInterface
      * @param string $logFile path/filename to log to.
      * @param string $level PSR3 loglevel to log
      */
-    public function __construct($logFile, $level = LogLevel::INFO)
+    public function __construct(string $logFile, string $level = LogLevel::INFO)
     {
         $log = pathinfo($logFile);
         // check if $logFile is a dir because of possible stream url
@@ -79,7 +80,7 @@ class SimpleFile extends AbstractLogger implements LoggerInterface
      *
      * @param string $level
      */
-    private function prepareLogLevels($level)
+    private function prepareLogLevels(string $level)
     {
         $levels = [
             LogLevel::EMERGENCY,

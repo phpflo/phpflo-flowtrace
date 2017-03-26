@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
+declare(strict_types=1);
 namespace PhpFlo;
 
 use PhpFlo\Common\AbstractNetworkDecorator;
@@ -67,7 +67,7 @@ class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecora
      * @param string $type
      * @return \Closure
      */
-    private function trace($type)
+    private function trace(string $type) : \Closure
     {
         $trace = function() use ($type) {
             switch ($type) {
@@ -88,7 +88,7 @@ class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecora
      * @param array $args
      * @param string $type
      */
-    private function traceData(array $args, $type)
+    private function traceData(array $args, string $type)
     {
         $data   = $args[0];
         $socket = $args[1];
@@ -111,7 +111,7 @@ class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecora
      * @param array $args
      * @param string $type
      */
-    private function traceAction(array $args, $type)
+    private function traceAction(array $args, string $type)
     {
         $socket = $args[0];
         $to = $socket->to();

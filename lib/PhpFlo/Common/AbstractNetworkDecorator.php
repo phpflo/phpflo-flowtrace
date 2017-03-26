@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
+declare(strict_types=1);
 namespace PhpFlo\Common;
 
 /**
@@ -36,7 +36,7 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
     /**
      * @return NetworkInterface
      */
-    public function getNetwork()
+    public function getNetwork() : NetworkInterface
     {
         return $this->network;
     }
@@ -52,7 +52,7 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
     /**
      * Cleanup network state after runs.
      *
-     * @return $this
+     * @return NetworkDecoratorInterface
      */
     public function shutdown()
     {
@@ -68,7 +68,7 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      * @return $this
      * @throws InvalidDefinitionException
      */
-    public function addInitial($data, $node, $port)
+    public function addInitial($data, string $node, string $port)
     {
         $this->network->addInitial($data, $node, $port);
 
@@ -88,7 +88,7 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      * @throws InvalidTypeException
      * @return $this
      */
-    public function hook($alias, $event, \Closure $closure)
+    public function hook(string $alias, string $event, \Closure $closure)
     {
         $this->network->hook($alias, $event, $closure);
 
@@ -100,7 +100,7 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      *
      * @return array
      */
-    public function hooks()
+    public function hooks() : array
     {
         return $this->network->hooks();
     }
@@ -127,9 +127,9 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
 
     /**
      * @param array $node
-     * @return $this
+     * @return NetworkInterface
      */
-    public function removeNode(array $node)
+    public function removeNode(array $node) : NetworkInterface
     {
         $this->network->removeNode($node);
 
@@ -140,17 +140,17 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      * @param string $id
      * @return mixed|null
      */
-    public function getNode($id)
+    public function getNode(string $id)
     {
         return $this->network->getNode($id);
     }
 
     /**
      * @param array $edge
-     * @return Network
+     * @return NetworkInterface
      * @throws \PhpFlo\Common\InvalidDefinitionException
      */
-    public function addEdge(array $edge)
+    public function addEdge(array $edge) : NetworkInterface
     {
         $this->network->addEdge($edge);
 
@@ -159,9 +159,9 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
 
     /**
      * @param array $edge
-     * @return $this
+     * @return NetworkInterface
      */
-    public function removeEdge(array $edge)
+    public function removeEdge(array $edge) : NetworkInterface
     {
         $this->network->removeEdge($edge);
 
@@ -173,10 +173,10 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      * and initialize the network processes/connections
      *
      * @param mixed $graph
-     * @return Network
+     * @return NetworkInterface
      * @throws \PhpFlo\Common\InvalidDefinitionException
      */
-    public function boot($graph)
+    public function boot($graph) : NetworkInterface
     {
         $this->network->boot($graph);
 
@@ -187,9 +187,9 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      * @param mixed $data
      * @param string $node
      * @param string $port
-     * @return $this
+     * @return NetworkInterface
      */
-    public function run($data, $node, $port)
+    public function run($data, string $node, string $port) : NetworkInterface
     {
         $this->network->run($data, $node, $port);
 
