@@ -21,7 +21,7 @@ use Psr\Log\LoggerInterface;
  * @package PhpFlo
  * @author Marc Aschmann <maschmann@gmail.com>
  */
-class TraceableNetwork extends AbstractNetworkDecorator implements NetworkDecoratorInterface
+class TraceableNetwork extends AbstractNetworkDecorator implements NetworkInterface
 {
     const TYPE_DATA = 'data';
     const TYPE_CONNECT = 'connect';

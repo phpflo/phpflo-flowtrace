@@ -52,9 +52,9 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
     /**
      * Cleanup network state after runs.
      *
-     * @return NetworkDecoratorInterface
+     * @return NetworkInterface
      */
-    public function shutdown()
+    public function shutdown() : NetworkInterface
     {
         $this->network->shutdown();
 
@@ -65,10 +65,10 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
      * @param mixed $data
      * @param string $node
      * @param string $port
-     * @return $this
+     * @return NetworkInterface
      * @throws InvalidDefinitionException
      */
-    public function addInitial($data, string $node, string $port)
+    public function addInitial($data, string $node, string $port) : NetworkInterface
     {
         $this->network->addInitial($data, $node, $port);
 
@@ -115,10 +115,10 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
 
     /**
      * @param array $node
-     * @return $this
+     * @return NetworkInterface
      * @throws \PhpFlo\Common\InvalidDefinitionException
      */
-    public function addNode(array $node)
+    public function addNode(array $node) : NetworkInterface
     {
         $this->network->addNode($node);
 
@@ -184,10 +184,13 @@ abstract class AbstractNetworkDecorator implements NetworkInterface
     }
 
     /**
+     * Add initialization data
+     *
      * @param mixed $data
      * @param string $node
      * @param string $port
      * @return NetworkInterface
+     * @throws FlowException
      */
     public function run($data, string $node, string $port) : NetworkInterface
     {
